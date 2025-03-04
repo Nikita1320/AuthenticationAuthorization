@@ -7,7 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="RepositoryInterfaces\" />
+    <ProjectReference Include="..\AuthenticationAuthorization.Domain.Core\AuthenticationAuthorization.Domain.Core.csproj" />
   </ItemGroup>
 
 </Project>
