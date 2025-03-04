@@ -4,7 +4,7 @@ using AuthenticationAuthorization.Infrastrucnure.Data.Configurations;
 
 namespace AuthenticationAuthorization.Infrastrucnure.Data.Contexts
 {
-    internal class ApplicationContext:DbContext
+    public class ApplicationContext:DbContext
     {
         private string CONNECTION_STRING = "User ID=postgres;Password=123;Host=localhost;Port=5432;Database=Auth;";
         public DbSet<User> Users { get; set; }

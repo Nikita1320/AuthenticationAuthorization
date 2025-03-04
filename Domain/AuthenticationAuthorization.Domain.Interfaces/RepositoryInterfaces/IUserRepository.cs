@@ -2,7 +2,7 @@
 
 namespace AuthenticationAuthorization.Domain.Interfaces.RepositoryInterfaces
 {
-    internal interface IUserRepository
+    public interface IUserRepository
     {
         public Task<List<User>> Get();
         public Task<User> GetById(Guid id);
