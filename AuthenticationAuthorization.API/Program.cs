@@ -1,5 +1,4 @@
-using AuthenticationAuthorization.Infrastrucnure.Data.Contexts;
-using Microsoft.AspNetCore.Mvc.ApplicationModels;
+using AuthenticationAuthorization.Persistence.Contexts;
 using Microsoft.EntityFrameworkCore;
 
 namespace AuthenticationAuthorization.API

@@ -24,7 +24,7 @@ namespace AuthenticationAuthorization.Infastructure
                 SecurityAlgorithms.Sha256);
 
             var token = new JwtSecurityToken(
-                claims: d,
+                claims: claims,
                 signingCredentials: signingCredentials,
                 expires: DateTime.UtcNow.AddHours(options.ExpiteHours)
                 );

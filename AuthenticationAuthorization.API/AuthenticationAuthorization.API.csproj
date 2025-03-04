@@ -18,6 +18,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Persistance\AuthenticationAuthorization.Persistence\AuthenticationAuthorization.Persistence.csproj" />
     <ProjectReference Include="..\Services\AuthenticationAuthorization.Services.Business\AuthenticationAuthorization.Services.Business.csproj" />
   </ItemGroup>
 
