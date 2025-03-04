@@ -17,4 +17,12 @@
     <PackageReference Include="Swashbuckle.AspNetCore.SwaggerGen" Version="7.3.1" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Contracts\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Infrastructure\AuthenticationAuthorization.Infrastrucnure.Data\AuthenticationAuthorization.Infrastrucnure.Data.csproj" />
+  </ItemGroup>
+
 </Project>
