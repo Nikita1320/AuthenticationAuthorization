@@ -6,6 +6,6 @@
         public string Name { get; set; } = string.Empty;
         public string Email { get; set; } = string.Empty;
         public Guid UserClaimsId { get; set; }
-        public UserClaims UserClaims { get; set; }
+        public UserClaims? UserClaims { get; set; }
     }
 }

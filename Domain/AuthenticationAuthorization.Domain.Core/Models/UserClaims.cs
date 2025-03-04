@@ -5,6 +5,6 @@
         public Guid Id { get; set; }
         public string Login { get; set; } = string.Empty;
         public string HashPassword { get; set; } = string.Empty;
-        public User User { get; set; }
+        public User User { get; set; } = new();
     }
 }
