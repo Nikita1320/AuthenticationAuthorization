@@ -18,11 +18,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Contracts\" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\Infrastructure\AuthenticationAuthorization.Infrastrucnure.Data\AuthenticationAuthorization.Infrastrucnure.Data.csproj" />
+    <ProjectReference Include="..\Services\AuthenticationAuthorization.Services.Business\AuthenticationAuthorization.Services.Business.csproj" />
   </ItemGroup>
 
 </Project>
