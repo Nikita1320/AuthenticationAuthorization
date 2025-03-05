@@ -1,5 +1,11 @@
+using AuthenticationAuthorization.Domain.Interfaces.RepositoryInterfaces;
+using AuthenticationAuthorization.Infastructure;
 using AuthenticationAuthorization.Persistence.Contexts;
+using AuthenticationAuthorization.Persistence.Repositories;
+using AuthenticationAuthorization.Services.Business;
+using AuthenticationAuthorization.Services.Interfaces;
 using Microsoft.EntityFrameworkCore;
+using System.Diagnostics;
 
 namespace AuthenticationAuthorization.API
 {
@@ -8,10 +14,13 @@ namespace AuthenticationAuthorization.API
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
-
+            var services = builder.Services;
             var configuration = builder.Configuration;
-            builder.Services.AddLogging();
-            builder.Services.AddEndpointsApiExplorer();
+
+            services.Configure<JwtOptions>(configuration.GetSection(nameof(JwtOptions)));
+            
+            var s = builder.Services.AddEndpointsApiExplorer();
+
             builder.Services.AddSwaggerGen();
 
             builder.Services.AddDbContext<ApplicationContext>(otions =>
@@ -19,9 +28,22 @@ namespace AuthenticationAuthorization.API
                 otions.UseNpgsql(configuration.GetConnectionString(nameof(ApplicationContext)));
             });
 
+            services.AddScoped<IUserRepository, UserRepository>();
+
+            services.AddScoped<AuthorizationService>();
+
+            services.AddScoped<IJWTProvider, JWTProvider>();
+            services.AddScoped<IPasswordHasher, PasswordHasher>();
+
             var app = builder.Build();
 
-            app.MapGet("/", () => "Hello World!");
+            app.MapUsersEndpoints();
+
+            if (app.Environment.IsDevelopment())
+            {
+                app.UseSwagger();
+                app.UseSwaggerUI();
+            }
 
             app.Run();
         }

@@ -1,7 +1,7 @@
 ﻿using AuthenticationAuthorization.API.Contracts;
 using AuthenticationAuthorization.Services.Business;
 
-namespace AuthenticationAuthorization.API.Endpoints
+namespace AuthenticationAuthorization.API
 {
     public static class UsersEndpoints
     {

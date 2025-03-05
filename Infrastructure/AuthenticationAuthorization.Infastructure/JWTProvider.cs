@@ -8,10 +8,10 @@ using System.Text;
 
 namespace AuthenticationAuthorization.Infastructure
 {
-    internal class JWTProvider: IJWTProvider
+    public class JWTProvider: IJWTProvider
     {
         private readonly JwtOptions options;
-        private JWTProvider(IOptions<JwtOptions> options)
+        public JWTProvider(IOptions<JwtOptions> options)
         {
             this.options = options.Value;
         }

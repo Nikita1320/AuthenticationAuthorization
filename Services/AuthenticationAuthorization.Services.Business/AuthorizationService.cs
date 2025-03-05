@@ -25,11 +25,22 @@ namespace AuthenticationAuthorization.Services.Business
             //создать токен
 
             var user = await userRepository.GetByLogin(login);
-            string token = string.Empty;
             if (user == null)
             {
+                throw new Exception();
+            }
+            if (user.UserClaims == null)
+            {
+                throw new Exception();
+            }
+            string token = string.Empty;
+            if (user != null)
+            {
                 var result = passwordHasher.Verify(password, user.UserClaims.HashPassword);
-
+                if (result == false)
+                {
+                    throw new Exception();
+                }
                 token = jWTProvider.GenerateToken(
                     new Dictionary<string, string>()
                     {
