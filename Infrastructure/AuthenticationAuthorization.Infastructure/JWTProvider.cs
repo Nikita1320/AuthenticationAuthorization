@@ -21,7 +21,7 @@ namespace AuthenticationAuthorization.Infastructure
 
             var signingCredentials = new SigningCredentials(
                 new SymmetricSecurityKey(Encoding.UTF8.GetBytes(options.SecretKey)),
-                SecurityAlgorithms.Sha256);
+                SecurityAlgorithms.HmacSha256);
 
             var token = new JwtSecurityToken(
                 claims: claims,
